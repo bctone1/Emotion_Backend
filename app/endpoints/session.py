@@ -1,7 +1,7 @@
 from fastapi import Request
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from crud.session import session_create
+from crud.session import session_create, session_end
 from database.base import get_db
 from datetime import datetime
 
@@ -30,3 +30,26 @@ async def create_session(request: Request, db: Session = Depends(get_db)):
     )
 
     return {"message": "세션이 생성되었습니다!", "session_id": str(new_session.session_id)}
+
+
+@router.post("/session_end")
+async def end_session(request: Request, db: Session = Depends(get_db)):
+    data = await request.json()
+    session_id = data.get("session_id")
+    end_time = data.get("end_time")
+
+    if not session_id:
+        return {"error": "session_id is required"}
+
+    updated_session = session_end(db=db, session_id=session_id, end_time=end_time)
+    if not updated_session:
+        return {"error": "세션을 찾을 수 없습니다."}
+
+    return {
+        "message": "세션이 종료되었습니다!",
+        "session_id": str(updated_session.session_id),
+        "end_time": updated_session.end_time,
+        "total_duration": updated_session.total_duration
+    }
+
+

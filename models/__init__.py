@@ -1,6 +1,6 @@
 # 모델을 모두 import 해야 metadata에 등록됨
 from models import sessions
-from models import emotion_changes
+# from models import emotion_changes
 from models import performance_metrics
 from models import emotion_measurements
 # from models import daily_statistics

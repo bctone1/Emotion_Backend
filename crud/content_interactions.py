@@ -9,7 +9,6 @@ def create_content(
         content_title: str,
         viewing_completed: bool,
         stopped_early: bool,
-        interaction_timestamp: str
 ):
     new_content_data = ContentInteraction(
         session_id=session_id,
@@ -18,7 +17,6 @@ def create_content(
         content_title=content_title,
         viewing_completed=viewing_completed,
         stopped_early=stopped_early,
-        interaction_timestamp=interaction_timestamp
     )
     db.add(new_content_data)
     db.commit()
