@@ -2,8 +2,13 @@ from sqlalchemy.ext.declarative import declarative_base
 import core.config as config
 import os
 from sqlalchemy import create_engine
-Base = declarative_base()
+
 from sqlalchemy.orm import sessionmaker
+
+
+Base = declarative_base()
+
+
 
 database = config.DB
 user = config.DB_USER
@@ -15,6 +20,8 @@ DATABASE_URL = os.getenv('DATABASE_URL', f'{database}://{user}:{pw}@{server}:{po
 
 
 engine = create_engine(DATABASE_URL)
+
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # 의존성 함수

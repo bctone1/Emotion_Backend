@@ -3,6 +3,7 @@ import uvicorn
 from fastapi import FastAPI
 from app.endpoints import session
 from fastapi.middleware.cors import CORSMiddleware
+from app.routers import register_routers
 
 # FastAPI 인스턴스 생성
 app = FastAPI()
@@ -16,7 +17,7 @@ app.add_middleware(
 )
 
 # 라우터 등록
-app.include_router(session.router)
+register_routers(app)
 
 if __name__ == "__main__":
     uvicorn.run(

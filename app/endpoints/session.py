@@ -22,13 +22,6 @@ async def create_session(request: Request, db: Session = Depends(get_db)):
     if not user_number or not user_ip:
         return {"error": "user_number and user_ip are required"}
 
-    # start_time이 없으면 현재 시간으로 설정
-    if start_time:
-
-        start_time = datetime.fromisoformat(start_time)
-    else:
-        start_time = None
-
     new_session = session_create(
         db=db,
         user_number=user_number,
@@ -36,4 +29,4 @@ async def create_session(request: Request, db: Session = Depends(get_db)):
         start_time=start_time
     )
 
-    return {"message": "Session created!", "session_id": str(new_session.session_id)}
+    return {"message": "세션이 생성되었습니다!", "session_id": str(new_session.session_id)}
