@@ -1,7 +1,7 @@
 # app/models/performance_metrics.py
-from sqlalchemy import Column, Float, Integer, ForeignKey
+from sqlalchemy import Column, Float, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
-from models.base import Base
+from database.base import Base
 from models.common import gen_uuid
 
 

@@ -1,7 +1,7 @@
 # app/models/emotion_measurements.py
-from sqlalchemy import Column, DateTime, Float, Boolean, Enum, ForeignKey, Integer, String, Index, func
+from sqlalchemy import Column, DateTime, Float, Boolean, Enum, ForeignKey, String, Index, func
 from sqlalchemy.dialects.postgresql import UUID
-from models.base import Base
+from database.base import Base
 import enum
 
 from models.common import gen_uuid

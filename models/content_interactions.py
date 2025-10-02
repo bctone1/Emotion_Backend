@@ -1,7 +1,7 @@
 # app/models/content_interactions.py
 from sqlalchemy import Column, DateTime, String, Boolean, Enum, ForeignKey, Index, func
 from sqlalchemy.dialects.postgresql import UUID
-from models.base import Base
+from database.base import Base
 import enum  # ← 이 라인 추가
 
 from models.common import gen_uuid

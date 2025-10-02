@@ -1,6 +1,6 @@
 # app/models/daily_statistics.py
 from sqlalchemy import Column, Date, Integer, Float
-from models.base import Base
+from database.base import Base
 
 class DailyStatistics(Base):
     __tablename__ = "daily_statistics"
