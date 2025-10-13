@@ -31,8 +31,4 @@ async def create_content_data(request: Request, db: Session = Depends(get_db)):
         viewing_completed=viewing_completed,
         stopped_early=stopped_early,
     )
-
     return {"message": "콘텐츠 데이터가 등록되었습니다!", "interaction_id": str(new_content_data.interaction_id)}
-
-
-

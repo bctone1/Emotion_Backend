@@ -28,7 +28,6 @@ async def create_session(request: Request, db: Session = Depends(get_db)):
         user_ip=user_ip,
         start_time=start_time
     )
-
     return {"message": "세션이 생성되었습니다!", "session_id": str(new_session.session_id)}
 
 
